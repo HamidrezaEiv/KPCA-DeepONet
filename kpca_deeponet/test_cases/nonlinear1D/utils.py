@@ -22,15 +22,5 @@ class prep():
         y_test = np.stack([self.fun(x, mu) for mu in x_test], 0)
         
         return x_train, y_train, x_test, y_test, x[..., None]
-    
-    def fit_scaler(self, y_train):
-        self.mean = y_train.mean()
-        self.std = y_train.std()
-        
-    def scale(self, y):
-        return (y - self.mean) / self.std
-    
-    def rescale(self, y):
-        return y * self.std + self.mean
         
     

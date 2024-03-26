@@ -1,0 +1,80 @@
+import numpy as np
+import random
+
+import tensorflow as tf
+from tensorflow.keras import optimizers, losses
+
+from kpca_deeponet.nns import konet
+from kpca_deeponet.kpca import kpca
+from kpca_deeponet.test_cases.NS.utils import prep
+from kpca_deeponet.metrics import l2_norm_error
+
+gpus = tf.config.experimental.list_physical_devices('GPU')
+for gpu in gpus:
+  tf.config.experimental.set_memory_growth(gpu, True)
+
+tf.config.set_visible_devices(gpus, 'GPU')
+
+def main():
+    verbose = 2
+    seed, d = 0, 88
+    
+    SEED = seed
+    random.seed(SEED)
+    np.random.seed(SEED)
+    tf.random.set_seed(SEED)
+    
+    filename = '../../data/Navier_Stokes/ns_V1e-3_N5000_T50.mat'
+    pp = prep()
+    x_train, y_train, x_test, y_test, grid = pp.get_data(filename, 1000, 200)
+    
+    kern = kpca('poly', gamma=[1.0, 1e-3], degree=[1.0, 2.0], coef0=[0.0, 0.1], alpha=1e-3, sparse=False)
+    
+    modes, z = kern.fit(y_train, d)
+    _, z_train, err_rec = kern.transform(y_train)
+    y_pred, z_test, err_rec_test = kern.transform(y_test)
+    print('relative l2-norm error of reconstruction for the test data: ', err_rec_test)
+
+    shape =  x_train[0].shape
+    activation = tf.keras.activations.tanh
+    branch = tf.keras.Sequential(
+        [
+            tf.keras.layers.InputLayer(input_shape=shape),
+            tf.keras.layers.SeparableConv2D(16, (5, 5), strides=2, activation=activation),
+            tf.keras.layers.SeparableConv2D(32, (5, 5), strides=2, activation=activation),
+            tf.keras.layers.SeparableConv2D(64, (5, 5), strides=2, activation=activation),
+            tf.keras.layers.SeparableConv2D(128, (5, 5), strides=2, activation=activation),
+            tf.keras.layers.Flatten(),
+            tf.keras.layers.Dense(128, activation=activation),
+            tf.keras.layers.Dense(d),
+        ]
+    )
+    print(branch.summary())
+
+    n_batches = 10
+    batch_size = int(len(x_train) / n_batches)
+    
+    initial_learning_rate = 1e-3
+    lr_schedule = optimizers.schedules.InverseTimeDecay(
+        initial_learning_rate,
+        decay_steps=1,
+        decay_rate=1e-4)
+    
+    model = konet(branch)
+    model.compile_grid_modes(grid, modes, z, kern.params, kern.c, p = 1)
+    model.compile(
+        optimizer = optimizers.AdamW(learning_rate=lr_schedule, weight_decay=1e-4),
+        loss = losses.MeanSquaredError(),
+        )
+
+    model.fit(x_train, [y_train, z_train], 
+            epochs=20000, 
+            batch_size = batch_size, 
+            validation_data=(x_test, [y_test, z_test]), 
+            verbose = verbose)
+    
+    y_pred, z_pred = model.predict(x_test)
+    print('relative l2-norm error: ', l2_norm_error(y_test, y_pred))
+    
+if __name__ == "__main__":
+    main()
