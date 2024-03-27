@@ -7,15 +7,16 @@ Operator learning provides methods to approximate mappings between infinite-dime
 
 .. list-table::
    :class: borderless
+   :align: center
 
    * - .. image:: examples/err_vs_d_1d.png
-   :height: 150
+          :height: 100
          
      - .. image:: examples/err_vs_d_cavity.png
-   :height: 150
+          :height: 100
 
-   - .. image:: examples/err_vs_d_NS.png
-   :height: 150
+     - .. image:: examples/err_vs_d_NS.png
+          :height: 100
 
 Installation
 ------------
