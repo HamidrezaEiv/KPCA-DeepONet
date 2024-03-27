@@ -1,6 +1,6 @@
-h5py==3.7.0
-mat73==0.62
-numpy==1.24.3
-scikit_learn==1.0.2
-scipy==1.10.1
-tensorflow==2.14.0
+h5py
+mat73
+numpy
+scikit_learn
+scipy
+tensorflow
