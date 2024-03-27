@@ -7,7 +7,7 @@ setup(
     author='Hamidreza Eivazi',
     author_email='he76@tu-clausthal.de',
     description='Nonlinear model reduction for operator learning',
-    long_description=open('README.md').read(),
+    long_description=README,
     long_description_content_type='text/markdown',
     url='https://github.com/HamidrezaEiv/KPCA-DeepONet',
     classifiers=[
