@@ -27,13 +27,12 @@ class kpca():
     
     def fit(self, X, n_components):
         """
-        Perform Kernel Proper Orthogonal Decomposition (Kernel POD) on the input data X.
+        Perform Kernel principal component analysis (KPCA) on the input data X.
     
         :param X: Input data (n_samples, n_features)
         :param n_components: Number of dominant modes to retain
-        :param gamma: Kernel parameter (bandwidth) for the Gaussian (RBF) kernel
-        :return: Dominant modes and corresponding coefficients
         """
+        
         self.c = X.mean(0)[None, ...]
         X = X - self.c
         
