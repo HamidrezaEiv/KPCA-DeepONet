@@ -35,7 +35,7 @@ You can also just pip install the library:
 Citation
 ------
 
-If you use ``kpca_deeponet`` in an academic paper, please cite:
+If you use ``kpca_deeponet`` in an academic paper, please cite::
 
    @inproceedings{
    eivazi2024nonlinear,
