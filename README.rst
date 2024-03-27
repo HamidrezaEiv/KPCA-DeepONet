@@ -31,3 +31,17 @@ You can also just pip install the library:
 .. code::
   
   pip install kpca_deeponet
+
+Citation
+------
+
+If you use ``kpca_deeponet`` in an academic paper, please cite:
+
+   @inproceedings{
+   eivazi2024nonlinear,
+   title={Nonlinear model reduction for operator learning},
+   author={Hamidreza Eivazi and Stefan Wittek and Andreas Rausch},
+   booktitle={The Second Tiny Papers Track at ICLR 2024},
+   year={2024},
+   url={https://openreview.net/forum?id=Jw6TUpB7Rw}
+   }
