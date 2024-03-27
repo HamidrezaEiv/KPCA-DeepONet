@@ -11,6 +11,7 @@ Operator learning provides methods to approximate mappings between infinite-dime
    <img src="examples/err_vs_d_1d.png" alt="Image 1" style="height:150px; margin-right:20px;">
    <img src="examples/err_vs_d_cavity.png" style="height:150px; margin-right:20px;">
    <img src="examples/err_vs_d_NS.png" alt="Image 3" style="height:150px;">
+   Comparison of the KPCA-DeepONet (orange) and POD-DeepONet (blue)
    </p>
 
 Installation
