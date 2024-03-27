@@ -30,7 +30,7 @@ You can also just pip install the library:
 
 .. code::
   
-  pip install kpca_deeponet
+  pip install kpca-deeponet
 
 Citation
 --------
