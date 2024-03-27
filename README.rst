@@ -8,7 +8,7 @@ Operator learning provides methods to approximate mappings between infinite-dime
 Installation
 ------------
 
-Clone the repository and install locally (in editable mode so changes in the code are immediately reflected without having to reinstall):
+Clone the repository and locally install it in editable mode:
 
 .. code::
 
