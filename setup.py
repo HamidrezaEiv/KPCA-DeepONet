@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='kpca_deeponet',
-    version='0.1',
+    version='0.1.0',
     packages=find_packages(),
     author='Hamidreza Eivazi',
     author_email='he76@tu-clausthal.de',
