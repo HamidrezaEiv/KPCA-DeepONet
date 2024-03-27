@@ -14,6 +14,8 @@ Operator learning provides methods to approximate mappings between infinite-dime
    Comparison of the KPCA-DeepONet (orange) and POD-DeepONet (blue)
    </p>
 
+More details about the implementation and results are available in our `paper <https://openreview.net/forum?id=Jw6TUpB7Rw>`_.
+
 Installation
 ------------
 
