@@ -5,15 +5,16 @@ KPCA-DeepONet
 
 Operator learning provides methods to approximate mappings between infinite-dimensional function spaces. Deep operator networks (DeepONets) are a notable architecture in this field. Recently, an extension of DeepONet based on the combination of model reduction and neural networks, POD-DeepONet, has been able to outperform other architectures in terms of accuracy for several benchmark tests. In this contribution, we extend this idea towards nonlinear model order reduction by proposing an efficient framework that combines neural networks with kernel principal component analysis (KPCA) for operator learning. Our results demonstrate the superior performance of KPCA-DeepONet over POD-DeepONet.
 
-|pic1||pic2||pic3|
+.. list-table::
+   :class: borderless
 
-.. |pic1| image:: examples/err_vs_d_1d.png
+   * - .. image:: examples/err_vs_d_1d.png
+   :height: 150
+         
+     - .. image:: examples/err_vs_d_cavity.png
    :height: 150
 
-.. |pic2| image:: examples/err_vs_d_cavity.png
-   :height: 150
-
-.. |pic3| image:: examples/err_vs_d_NS.png
+   - .. image:: examples/err_vs_d_NS.png
    :height: 150
 
 Installation
