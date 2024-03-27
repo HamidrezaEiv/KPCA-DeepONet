@@ -8,13 +8,13 @@ Operator learning provides methods to approximate mappings between infinite-dime
 |pic1||pic2||pic3|
 
 .. |pic1| image:: examples/err_vs_d_1d.png
-   :width: 30%
+   :width: 200
 
 .. |pic2| image:: examples/err_vs_d_cavity.png
-   :width: 30%
+   :width: 200
 
 .. |pic3| image:: examples/err_vs_d_NS.png
-   :width: 30%
+   :width: 200
 
 Installation
 ------------
