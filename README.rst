@@ -46,5 +46,6 @@ If you use ``kpca_deeponet`` in an academic paper, please cite::
                   author={Hamidreza Eivazi and Stefan Wittek and Andreas Rausch},
                   booktitle={The Second Tiny Papers Track at ICLR 2024},
                   year={2024},
-                  url={https://openreview.net/forum?id=Jw6TUpB7Rw}
+                  url={https://openreview.net/forum?id=Jw6TUpB7Rw},
+                  doi={10.5281/zenodo.13754046}
                   }
